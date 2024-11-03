@@ -1,0 +1,26 @@
+Deploy embedded tomcat spring boot app deploy on External Tomcat
+
+
+1- change the packaging  make it jar to war
+
+2-add below line  inside the pom.xml
+
+   <packaging>war</packaging>
+   
+3- add tomcat depencay as below
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-tomcat</artifactId>
+    <scope>provided</scope>
+</dependency>
+
+4- Inside Spring Boot main class extend SpringBootServletInitializer 
+
+@Override
+
+protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+
+return application.sources(SbAppDeployExternalTomcatApplication.class);}
+
+	    
